@@ -14,10 +14,10 @@ angular.module('shortly.shorten', [])
   $scope.addLink = function(link){
     $scope.waiting = true;
     $scope.postedLink = undefined;
-    $scope.link = undefined;
     $scope.err = undefined;
     Links.post(link)
       .then(function(data){
+        $scope.link = undefined;
         $scope.waiting = false;
         $scope.postedLink = data;
       })

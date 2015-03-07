@@ -1,12 +1,10 @@
 <div class="container">
-  <form class="form-signin" name="signinForm" ng-submit='signin()'>
+  <form class="form-signin" id="signinForm" name="signinForm" ng-submit='signin()' ng-class="{'has-error' : err }">
     <h2 class="form-signin-heading">Please sign in!</h2>
     <input ng-model='user.username' type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
     <input ng-model='user.password' type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+    <div ng-if="err" class="alert alert-danger" role="alert" ng-model="err">{{err}}</div>
   </form>
-  <div ng-if="err" ng-model="err">
-    <h5 class="error">Error: {{err}}</h1>
-  </div>
 </div>

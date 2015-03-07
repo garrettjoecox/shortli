@@ -43,3 +43,11 @@
 .link {
   color: skyblue;
 }
+
+.addlink {
+  padding-bottom: 10px;
+}
+
+.errItem {
+  border-color: red !important;
+}

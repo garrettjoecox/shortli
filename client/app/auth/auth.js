@@ -15,6 +15,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        // document.getElementById('signinForm').classList.add('has-error');
         $scope.err = error.data.error;
       });
   };
@@ -28,6 +29,7 @@ angular.module('shortly.auth', [])
       })
       .catch(function (error) {
         $scope.err = error.data.error;
+        document.getElementById('signinForm').classList.add('has-error');
       });
   };
 });

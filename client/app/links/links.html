@@ -12,11 +12,11 @@
 </nav>
 <div class="container">
   <div class="list-group">
-    <a href='/api/links/{{link.code}}' class="list-group-item" ng-repeat="link in data.links" ng-model="link">
+    <div class="list-group-item" ng-repeat="link in data.links" ng-model="link">
       <span class="badge">{{link.visits}}</span>
       <h4 class="media-heading">{{link.title}}</h4>
       <span>{{link.url}}</span><br>
-      <span class="link">Click to copy: {{link.code}}</span>
-    </a>
+      <a class="link" href='/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
+    </div>
   </div>
 </div>

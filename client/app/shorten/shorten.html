@@ -10,31 +10,23 @@
     </ul>
   </div>
 </nav>
-<div id='container'>
-  <div id='layout'>
-    <div class='navigation'>
-    <ul>
-      <li><a href='#/links' class='index'>All Links</a></li>
-      <li><a href='#/shorten' class='create'>Shorten</a></li>
-      <li class='logout'><a ng-click='logout()'>Logout</a></li>
-    </ul>
+<div class="container">
+  <form class="addlink" ng-submit="addLink(link)">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="link.url" placeholder="http://">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Shorten!</button>
+      </span>
     </div>
-  </div>
-  <form ng-submit="addLink(link)">
-    <input id="url" ng-model="link.url" placeholder="What would you like to shorten?">
-    <button type="submit">Shorten</button>
   </form>
-  <div class="link" ng-if="postedLink" ng-model="postedLink">
-    <img src='/assets/redirect_icon.png'/>
-    <div class='info'>
-      <div class='visits'><span class='count'>{{postedLink.visits}}</span>Visits</div>
-      <div class='title'>{{postedLink.title}}</div>
-      <div class='original'>{{postedLink.url}}</div>
-      <a href='{{postedLink.base_url}}/api/links/{{postedLink.code}}'>{{postedLink.base_url}}/api/links/{{postedLink.code}}</a>
+  <div class="list-group">
+    <div class="list-group-item" ng-if="postedLink" ng-model="postedLink">
+      <span class="badge">{{postedLink.visits}}</span>
+      <h4 class="media-heading">{{postedLink.title}}</h4>
+      <span>{{postedLink.url}}</span><br>
+      <a class="link" href='/api/links/{{postedLink.code}}'>{{postedLink.base_url}}/api/links/{{postedLink.code}}</a>
     </div>
+    <div ng-if="err" class="alert alert-danger" role="alert" ng-model="err">{{err}}</div>
   </div>
   <img ng-if="waiting" src="/assets/spiffygif_46x46.gif"/>
-  <div ng-if="err" ng-model="err">
-    <h5 class="error">Error: {{err}}</h1>
-  </div>
 </div>
