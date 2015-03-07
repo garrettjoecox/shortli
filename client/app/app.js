@@ -35,7 +35,7 @@ angular.module('shortly', [
     .otherwise({
       templateUrl: 'app/links/links.html',
       controller: 'LinksController',
-      authenticate: false
+      authenticate: true
     });
 
     $httpProvider.interceptors.push('AttachTokens');

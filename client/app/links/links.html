@@ -1,20 +1,20 @@
 <div id='container'>
   <div id='layout'>
     <div class='navigation'>
-    <ul>
-      <li><a href='#/links' class='index'>All Links</a></li>
-      <li><a href='#/shorten' class='create'>Shorten</a></li>
-      <li class='logout'><a ng-click='logout()'>Logout</a></li>
-    </ul>
+      <ul>
+        <li><a href='#/links' class='index'>All Links</a></li>
+        <li><a href='#/shorten' class='create'>Shorten</a></li>
+        <li class='logout'><a ng-click='logout()'>Logout</a></li>
+      </ul>
     </div>
   </div>
-  <div class="link" ng-repeat="link in data.links | orderBy : link.visits" ng-model="link">
+  <div class="link" ng-repeat="link in data.links" ng-model="link">
     <img src='/assets/redirect_icon.png'/>
     <div class='info'>
       <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
       <div class='title'>{{link.title}}</div>
       <div class='original'>{{link.url}}</div>
-      <a href='{{link.base_url}}/#/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+      <a href='/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
     </div>
   </div>
 </div>
