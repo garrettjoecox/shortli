@@ -8,8 +8,21 @@
     </ul>
     </div>
   </div>
-  <form ng-submit="addLink()">
+  <form ng-submit="addLink(link)">
     <input id="url" ng-model="link.url" placeholder="What would you like to shorten?">
     <button type="submit">Shorten</button>
   </form>
+  <div class="link" ng-if="postedLink" ng-model="postedLink">
+    <img src='/assets/redirect_icon.png'/>
+    <div class='info'>
+      <div class='visits'><span class='count'>{{postedLink.visits}}</span>Visits</div>
+      <div class='title'>{{postedLink.title}}</div>
+      <div class='original'>{{postedLink.url}}</div>
+      <a href='{{postedLink.base_url}}/#/{{postedLink.code}}'>{{postedLink.base_url}}/{{postedLink.code}}</a>
+    </div>
+  </div>
+  <img ng-if="waiting" src="/assets/spiffygif_46x46.gif"/>
+  <div ng-if="err" ng-model="err">
+    <h5 class="error">Error: {{err}}</h1>
+  </div>
 </div>

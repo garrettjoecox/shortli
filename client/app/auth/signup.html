@@ -6,4 +6,7 @@
     <button>signup</button>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+  <div ng-if="err" ng-model="err">
+    <h5 class="error">Error: {{err}}</h1>
+  </div>
 </div>
