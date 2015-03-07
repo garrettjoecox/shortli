@@ -8,6 +8,10 @@ angular.module('shortly.links', [])
     Auth.signout();
   };
 
+  $scope.clipboard = function(){
+    window.clipboardData.setData ("Text", 'LOL');
+  };
+
   $scope.getLinks = function(){
     Links.get().then(function(data){
       $scope.data.links = data.sort(function(a,b){

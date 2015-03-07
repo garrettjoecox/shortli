@@ -1,7 +1,6 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-
   var get = function(){
     return $http({
       method: 'GET',
@@ -10,7 +9,6 @@ angular.module('shortly.services', [])
       return resp.data;
     });
   };
-
   var post = function(link){
     return $http({
       method: 'POST',
@@ -20,12 +18,10 @@ angular.module('shortly.services', [])
       return resp.data;
     });
   };
-
   return {
     get: get,
     post: post
   };
-
 })
 
 .factory('Auth', function ($http, $location, $window) {
