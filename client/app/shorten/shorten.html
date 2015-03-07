@@ -1,6 +1,13 @@
 <div id='container'>
-  <h1>Shorten</h1>
-  <a href="/#/links">Links</a>
+  <div id='layout'>
+    <div class='navigation'>
+    <ul>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
+      <li class='logout'><a ng-click='logout()'>Logout</a></li>
+    </ul>
+    </div>
+  </div>
   <form ng-submit="addLink()">
     <input id="url" ng-model="link.url" placeholder="What would you like to shorten?">
     <button type="submit">Shorten</button>

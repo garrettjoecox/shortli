@@ -21,9 +21,17 @@ angular.module('shortly.services', [])
     });
   };
 
+  var find = function(link){
+    return $http({
+      method: 'GET',
+      url: 'api/links/'+link
+    });
+  };
+
   return {
     get: get,
-    post: post
+    post: post,
+    find: find
   };
 
 })
