@@ -6,6 +6,7 @@ angular.module('shortly.auth', [])
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
   $scope.err;
+  $scope.cp;
 
   $scope.signin = function () {
     $scope.err = undefined;
@@ -22,14 +23,18 @@ angular.module('shortly.auth', [])
 
   $scope.signup = function () {
     $scope.err = undefined;
-    Auth.signup($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/links');
-      })
-      .catch(function (error) {
-        $scope.err = error.data.error;
-        document.getElementById('signinForm').classList.add('has-error');
-      });
+    if ($scope.cp === $scope.user.password){
+      Auth.signup($scope.user)
+        .then(function (token) {
+          $window.localStorage.setItem('com.shortly', token);
+          $location.path('/links');
+        })
+        .catch(function (error) {
+          $scope.err = error.data.error;
+          document.getElementById('signinForm').classList.add('has-error');
+        });
+    } else {
+      $scope.err = "Passwords don't match!";
+    }
   };
 });

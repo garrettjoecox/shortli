@@ -2,10 +2,11 @@
   <form class="form-signin" id="signinForm" name="signupForm" ng-submit='signup()' ng-class="{'has-error' : err }">
     <h2 class="form-signin-heading">Sign up!</h2>
     <input ng-model='user.username' type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-    <input type="password" id="confirmPassword" class="form-control" placeholder="Password" required>
+    <input ng-model='cp' type="password" id="confirmPassword" class="form-control" placeholder="Password" required>
     <input ng-model='user.password' type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
     <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
     <div ng-if="err" class="alert alert-danger" role="alert" ng-model="err">{{err}}</div>
+    <!-- <div ng-if="user.password !== user.password" class="alert alert-danger" role="alert">Passwords don't match!</div> -->
   </form>
 </div>
