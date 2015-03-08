@@ -3,7 +3,9 @@
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/shortly'); // connect to mongo database named shortly
+var connectionUrl = process.env.CUSTOMCONNSTR_MONGOLAB_URI || 'mongodb://localhost/shortly';
+
+mongoose.connect(connectionUrl); // connect to mongo database named shortly
 
 // configure our server with all the middleware and and routing
 require('./config/middleware.js')(app, express);
